@@ -1,10 +1,10 @@
 <template>
-  <div class="page-container">
-    <div class="page-header">
+  <div class="container my-4">
+    <div class="mb-3">
       <NuxtLink to="/" class="back-link">← Torna alla lista</NuxtLink>
     </div>
 
-    <div v-if="!survey" class="empty-note">
+    <div v-if="!survey" class="text-muted fst-italic">
       Questionario non trovato. <NuxtLink to="/">Torna alla lista</NuxtLink>
     </div>
 
@@ -118,23 +118,25 @@
       </div>
 
       <!-- ── Score detail ──────────────────────────────────────────────────── -->
-      <div class="score-detail">
-        <div class="score-row score-total">
-          Azienda: <strong>{{ survey.company_name }}</strong> –
-          Sede: <strong>{{ survey.office_name }}</strong> –
-          Classe: <strong>{{ result.class_total }}</strong> –
-          Punteggio: <strong>{{ result.total.toFixed(1) }}</strong>
-        </div>
-        <div v-for="b in boxDetails" :key="b.name" class="score-row">
-          {{ b.name }}: Classe
-          <span class="inline-badge" :style="{ backgroundColor: classColor(b.cls) }">{{ b.cls }}</span>
-          – {{ b.score.toFixed(1) }}
+      <div class="card my-4" style="max-width: 540px; margin-left: auto; margin-right: auto;">
+        <div class="card-body p-3">
+          <p class="fw-bold mb-2">
+            Azienda: <strong>{{ survey.company_name }}</strong> –
+            Sede: <strong>{{ survey.office_name }}</strong> –
+            Classe: <strong>{{ result.class_total }}</strong> –
+            Punteggio: <strong>{{ result.total.toFixed(1) }}</strong>
+          </p>
+          <div v-for="b in boxDetails" :key="b.name" class="py-1 border-bottom small">
+            {{ b.name }}: Classe
+            <span class="badge" :style="{ backgroundColor: classColor(b.cls) }">{{ b.cls }}</span>
+            – {{ b.score.toFixed(1) }}
+          </div>
         </div>
       </div>
 
-      <div class="form-actions">
+      <div class="d-flex gap-3 flex-wrap my-4">
         <NuxtLink :to="`/edit/${survey.id}`" class="btn btn-primary">Modifica questionario</NuxtLink>
-        <button class="btn btn-export" :disabled="exporting" @click="exportPng">
+        <button class="btn btn-info text-white" :disabled="exporting" @click="exportPng">
           <span v-if="exporting">Esportazione…</span>
           <span v-else>⬇ Esporta PNG</span>
         </button>
@@ -389,46 +391,4 @@ async function exportPng() {
 .ml-disclaimer-bold { margin: 0 0 4px; font-size: 0.8rem; }
 .ml-disclaimer-text { margin: 0 0 6px; }
 .ml-credit-text { margin: 0; color: #666; }
-
-/* ── Score detail ───────────────────────────────────────────────────────────── */
-.score-detail {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 1rem;
-  margin: 1.5rem auto;
-  max-width: 540px;
-}
-.score-row {
-  padding: 0.25rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 0.92rem;
-}
-.score-row:last-child { border-bottom: none; }
-.score-total { font-weight: bold; margin-bottom: 0.4rem; }
-.inline-badge {
-  display: inline-block;
-  padding: 0.05rem 0.45rem;
-  border-radius: 3px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.82rem;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  vertical-align: middle;
-}
-
-/* Export button */
-.btn-export {
-  background: #039ACB;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.48rem 1rem;
-  font-size: 0.9rem;
-  font-family: inherit;
-  font-weight: 500;
-  cursor: pointer;
-  transition: filter 0.15s;
-}
-.btn-export:hover:not(:disabled) { filter: brightness(0.9); }
-.btn-export:disabled { opacity: 0.6; cursor: not-allowed; }
 </style>

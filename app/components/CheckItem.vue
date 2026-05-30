@@ -1,18 +1,22 @@
 <template>
-  <label class="check-item">
+  <div class="form-check mb-2">
     <input
       type="checkbox"
+      class="form-check-input"
+      :id="uid"
       :checked="modelValue === 1"
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked ? 1 : 0)"
     />
-    <span class="check-label">
+    <label class="form-check-label" :for="uid">
       {{ label }}
-      <span v-if="description" class="check-description">{{ description }}</span>
-    </span>
-  </label>
+      <span v-if="description" class="d-block small text-muted mt-1">{{ description }}</span>
+    </label>
+  </div>
 </template>
 
 <script setup lang="ts">
+const uid = `chk-${Math.random().toString(36).slice(2)}`
+
 defineProps<{
   modelValue: number
   label: string
@@ -20,29 +24,3 @@ defineProps<{
 }>()
 defineEmits<{ 'update:modelValue': [value: number] }>()
 </script>
-
-<style scoped>
-.check-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  cursor: pointer;
-}
-.check-item input[type='checkbox'] {
-  margin-top: 0.2rem;
-  flex-shrink: 0;
-  width: 1.1em;
-  height: 1.1em;
-  cursor: pointer;
-}
-.check-label {
-  display: flex;
-  flex-direction: column;
-}
-.check-description {
-  font-size: 0.82em;
-  color: #555;
-  margin-top: 0.15rem;
-}
-</style>

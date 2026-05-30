@@ -1,33 +1,21 @@
+<script setup lang="ts">
+import Footer from './components/Footer.vue';
+
+</script>
+
 <template>
-  <div class="site-wrapper">
-    <nav class="top-nav">
-      <NuxtLink to="/" class="nav-brand">
+  <div class="d-flex flex-column min-vh-100">
+    <nav class="top-nav navbar px-3">
+      <NuxtLink to="/" class="navbar-brand">
         <img src="/logo-semplice-testo-dx.svg" alt="MobilitySquare" class="nav-logo" />
       </NuxtLink>
-      <span class="nav-tagline">Mobility Label</span>
+      <span class="nav-tagline ms-auto">Mobility Label</span>
     </nav>
 
-    <main class="site-main">
+    <main class="flex-grow-1">
       <NuxtPage />
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="footer-credits">
-          Strumento sviluppato da
-          <a href="https://mobilitysquare.eu" target="_blank" rel="noopener">MobilitySquare</a>
-          nell'ambito del progetto
-          <a href="https://moma.biz" target="_blank" rel="noopener">MoMa.Biz</a>,
-          finanziato dalla linea Intelligent Energy Europe dell'Unione Europea.
-        </p>
-        <p class="footer-disclaimer">
-          Questa è un'etichetta di autovalutazione. La sola responsabilità per i contenuti è degli autori;
-          non rispecchia le opinioni dell'Unione Europea.
-        </p>
-        <p class="footer-copy">
-          &copy; <a href="https://mobilitysquare.eu" target="_blank" rel="noopener">mobilitysquare.eu</a>
-        </p>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </template>

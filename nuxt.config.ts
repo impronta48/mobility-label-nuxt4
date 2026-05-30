@@ -4,11 +4,13 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   compatibilityDate: '2024-11-01',
-  css: ['~/assets/css/main.css'],
+  css: ['bootstrap/dist/css/bootstrap.min.css', '~/assets/css/main.css'],
   devtools: { enabled: true },
   devServer: {
     port: 3030,
   },
+
+  modules: ['@nuxt/icon'],
 
   app: {
     head: {

@@ -1,6 +1,6 @@
 <template>
-  <div class="page-container" v-if="survey">
-    <div class="page-header">
+  <div class="container my-4" v-if="survey">
+    <div class="mb-4">
       <NuxtLink to="/" class="back-link">← Torna alla lista</NuxtLink>
       <h2>{{ survey.company_name }} – {{ survey.office_name }}</h2>
       <h3>Questionario Mobility Label {{ survey.year }}</h3>
@@ -106,7 +106,7 @@
         <CheckItem v-model="survey.box8.general_services"     :label="labels.box8.general_services"     :description="descriptions.box8.general_services" />
       </fieldset>
 
-      <div class="form-actions">
+      <div class="d-flex gap-3 flex-wrap my-4">
         <button type="submit" class="btn btn-primary btn-lg">Salva</button>
         <NuxtLink :to="`/view/${survey.id}`" class="btn btn-secondary btn-lg">Visualizza etichetta</NuxtLink>
       </div>
@@ -115,7 +115,7 @@
       <div v-if="error" class="alert alert-danger">{{ error }}</div>
     </form>
   </div>
-  <div v-else class="page-container">
+  <div v-else class="container my-4">
     <p>Questionario non trovato. <NuxtLink to="/">Torna alla lista</NuxtLink></p>
   </div>
 </template>

@@ -10,11 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^2.2.2",
+    "bootstrap": "^5.3.8",
     "html2canvas": "^1.4.1",
-    "nuxt": "^3.13.0"
+    "nuxt": "^4"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "vue-tsc": "^2.0.0"
+    "typescript": "^5.9.3",
+    "vue-tsc": "^2.2.12"
   }
 }
