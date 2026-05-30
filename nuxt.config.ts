@@ -38,7 +38,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: '/images/green_label.png' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/png', href: '/mobility-label-nuxt4/favicon.png' },
       ],
     },
   },
