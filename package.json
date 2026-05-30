@@ -1,0 +1,20 @@
+{
+  "name": "mobility-label-nuxt4",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "nuxt": "^3.13.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vue-tsc": "^2.0.0"
+  }
+}
