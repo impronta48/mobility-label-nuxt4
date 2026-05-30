@@ -13,9 +13,9 @@ export default defineNuxtConfig({
   modules: ['@nuxt/icon'],
 
   app: {
+    baseURL: '/mobility-label-nuxt4/',
     head: {
       htmlAttrs: { lang: 'it' },
-      baseURL: '/mobility-label-nuxt4/',
       title: 'Mobility Label – Autovalutazione mobilità aziendale | MobilitySquare',
       meta: [
         { charset: 'utf-8' },
