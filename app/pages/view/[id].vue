@@ -20,7 +20,7 @@
         <div class="ml-header">
           <div class="ml-logo-cell">
             <a href="https://moma.biz" target="_blank" rel="noopener">
-              <img src="/images/momabiz-logo.png" alt="MoMa.BIZ" class="ml-logo-img" />
+              <img :src="publicAsset('images/momabiz-logo.png')" alt="MoMa.BIZ" class="ml-logo-img" />
             </a>
           </div>
           <div class="ml-title-cell">
@@ -77,7 +77,7 @@
             <img
               v-for="n in [1, 2, 3, 4]"
               :key="n"
-              :src="`/images/icons/Icons_EAP-box${n}-${boxClasses[n - 1].cls}.png`"
+              :src="publicAsset(`images/icons/Icons_EAP-box${n}-${boxClasses[n - 1].cls}.png`)"
               :title="`${boxClasses[n - 1].label}: Classe ${boxClasses[n - 1].cls}`"
               class="ml-icon-img"
             />
@@ -86,7 +86,7 @@
             <img
               v-for="n in [5, 6, 7, 8]"
               :key="n"
-              :src="`/images/icons/Icons_EAP-box${n}-${boxClasses[n - 1].cls}.png`"
+              :src="publicAsset(`images/icons/Icons_EAP-box${n}-${boxClasses[n - 1].cls}.png`)"
               :title="`${boxClasses[n - 1].label}: Classe ${boxClasses[n - 1].cls}`"
               class="ml-icon-img"
             />
@@ -98,7 +98,7 @@
           <div class="ml-footer-date"><strong>Data:</strong> {{ curDate }}</div>
           <a href="https://ec.europa.eu/energy/intelligent/" target="_blank" rel="noopener">
             <img
-              src="/images/iee_logo_supportedby_72.jpg"
+              :src="publicAsset('images/iee_logo_supportedby_72.jpg')"
               alt="Intelligent Energy Europe"
               class="ml-iee-logo"
             />
@@ -148,12 +148,18 @@
 <script setup lang="ts">
 import { calculateLabel, CLASS_COLORS } from '~/composables/useMobilityLabel'
 import html2canvas from 'html2canvas'
+import { joinURL } from 'ufo'
 
 const route = useRoute()
 const { getById } = useMobilityLabel()
+const { app } = useRuntimeConfig()
 
 const survey = ref(getById(route.params.id as string))
 const result = computed(() => survey.value ? calculateLabel(survey.value) : null!)
+
+function publicAsset(path: string) {
+  return joinURL(app.baseURL, path)
+}
 
 const hasData = computed(() => {
   if (!survey.value) return false

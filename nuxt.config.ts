@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const baseURL = '/mobility-label-nuxt4/'
+
 export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
@@ -13,7 +15,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/icon'],
 
   app: {
-    baseURL: '/mobility-label-nuxt4/',
+    baseURL,
     head: {
       htmlAttrs: { lang: 'it' },
       title: 'Mobility Label – Autovalutazione mobilità aziendale | MobilitySquare',
@@ -35,10 +37,10 @@ export default defineNuxtConfig({
           property: 'og:description',
           content: 'Calcola la Mobility Label della tua azienda con lo strumento di autovalutazione MoMa.Biz, sviluppato da MobilitySquare.',
         },
-        { property: 'og:image', content: '/images/green_label.png' },
+        { property: 'og:image', content: `${baseURL}images/green_label.png` },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/mobility-label-nuxt4/favicon.png' },
+        { rel: 'icon', type: 'image/png', href: `${baseURL}favicon.png` },
       ],
     },
   },
