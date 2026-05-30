@@ -4,12 +4,14 @@ Applicazione **Nuxt 4** autonoma per la compilazione e la visualizzazione del **
 
 > I dati vengono salvati nel **localStorage** del browser — nessun backend necessario.
 
+Usa direttamente l'applicazione [https://impronta48.github.io/mobility-label-nuxt4/]
+
 ## Avvio rapido
 
 ```bash
 cd mobility-label-nuxt4
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Poi apri [http://localhost:3000](http://localhost:3000).
@@ -41,6 +43,6 @@ app/
 ## Build di produzione
 
 ```bash
-npm run build      # SSR
-npm run generate   # statico (SPA)
+pnpm run build      # SSR
+pnpm run generate   # statico (SPA)
 ```
