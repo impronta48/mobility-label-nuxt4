@@ -3,7 +3,9 @@
 # To get started with Nuxt see: https://nuxtjs.org/docs/get-started/installation
 #
 name: Deploy Nuxt site to Pages
-
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
 on:
   # Runs on pushes targeting the default branch
   push:
